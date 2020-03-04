@@ -126,7 +126,7 @@ class Processor():
         print('Training begin')
         find_result=[]
         test_error, test_final_error=0,0
-        for epoch in range(self.args.num_epochs):
+        for epoch in range(int(self.args.num_epochs)):
 
             train_loss,_=self.train_epoch(epoch)
             val_error,val_final,_,_,_= self.val_epoch(epoch)

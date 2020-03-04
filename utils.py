@@ -37,7 +37,7 @@ class DataLoader_bytrajec2():
             if args.test_set==4 or args.test_set==5:
                 self.test_set=[4,5]
             else:
-                self.test_set=[self.args.test_set]
+                self.test_set=[int(self.args.test_set)]
 
             for x in self.test_set:
                 train_set.remove(x)
@@ -384,7 +384,7 @@ class DataLoader_bytrajec2():
         #val_num_batches=int(valbatchnums/self.args.val_batch_size)
 
         f = open(cachefile, "wb")
-        pickle.dump(( trainbatch, trainbatchnums, valbatch, valbatchnums), f, protocol=2)
+        pickle.dump((trainbatch, trainbatchnums, valbatch, valbatchnums), f, protocol=2)
         f.close()
     def find_trajectory_fragment(self, trajectory,startframe,seq_length,skip):
         '''
