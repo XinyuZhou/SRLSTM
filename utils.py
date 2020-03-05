@@ -384,6 +384,9 @@ class DataLoader_bytrajec2():
         #val_num_batches=int(valbatchnums/self.args.val_batch_size)
 
         f = open(cachefile, "wb")
+        # todo xinyuzhou: this step will OOM and cause train_batch_cache.cpkl generated with size 0.
+        # need to manually close apps and free memory to run it through.
+        # need roughly 6GB memory.
         pickle.dump((trainbatch, trainbatchnums, valbatch, valbatchnums), f, protocol=2)
         f.close()
     def find_trajectory_fragment(self, trajectory,startframe,seq_length,skip):
